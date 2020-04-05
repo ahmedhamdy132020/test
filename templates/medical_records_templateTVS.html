@@ -1,0 +1,11 @@
+<!-- Edit this file to change the layout of each record in the table view -->
+<!-- To disable clicking of a field, remove the  and  formatters around it-->
+
+<!-- If you wish to hide the table view header that contains the column titles, -->
+<!-- add the following to the medical_records_init() hook (in hooks/medical_records.php file) -->
+<!--     $options->ShowTableHeader = 0;     -->
+
+		<td id="medical_records-patient-<%%VALUE(id)%%>" class="medical_records-patient"><%%VALUE(patient)%%></td>
+		<td id="medical_records-image-<%%VALUE(id)%%>" class="medical_records-image"><a href="<%%TRANSLATION(ImageFolder)%%><%%VALUE(image)%%>" data-lightbox="medical_records-image"><img src="thumbnail.php?i=<%%VALUE(image)%%>&t=medical_records&f=image&v=tv" class="img-thumbnail"></a></td>
+		<td id="medical_records-document-<%%VALUE(id)%%>" class="medical_records-document"><%%VALUE(document)%%></td>
+		<td id="medical_records-description-<%%VALUE(id)%%>" class="medical_records-description"><%%VALUE(description)%%></td>

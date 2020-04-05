@@ -1,0 +1,420 @@
+Call: 1247
+Delete: "C:\Users\DELLG5~1\AppData\Local\Temp\nsv6241.tmp"
+CreateDirectory: "C:\Users\DELLG5~1\AppData\Local\Temp\nsv6241.tmp" (0)
+CreateDirectory: "C:\Users\DELLG5~1\AppData\Local\Temp\nsv6241.tmp" created
+File: overwriteflag=1, allowskipfilesflag=2, name="C:\Users\DELLG5~1\AppData\Local\Temp\nsv6241.tmp\GetVersion.dll"
+File: wrote 6656 to "C:\Users\DELLG5~1\AppData\Local\Temp\nsv6241.tmp\GetVersion.dll"
+Call: 1247
+File: overwriteflag=1, allowskipfilesflag=2, name="C:\Users\DELLG5~1\AppData\Local\Temp\nsv6241.tmp\GetVersion.dll"
+File: skipped: "C:\Users\DELLG5~1\AppData\Local\Temp\nsv6241.tmp\GetVersion.dll" (overwriteflag=1)
+Call: 779
+Jump: 796
+Jump: 813
+Call: 818
+Jump: 908
+Call: 818
+Call: 818
+Call: 818
+Call: 818
+Call: 1247
+File: overwriteflag=0, allowskipfilesflag=2, name="C:\Users\DELLG5~1\AppData\Local\Temp\nsv6241.tmp\ioSpecial.ini"
+File: wrote 211 to "C:\Users\DELLG5~1\AppData\Local\Temp\nsv6241.tmp\ioSpecial.ini"
+WriteINIStr: wrote [Settings] RTL=0 in C:\Users\DELLG5~1\AppData\Local\Temp\nsv6241.tmp\ioSpecial.ini
+File: overwriteflag=0, allowskipfilesflag=2, name="C:\Users\DELLG5~1\AppData\Local\Temp\nsv6241.tmp\modern-wizard.bmp"
+File: wrote 52576 to "C:\Users\DELLG5~1\AppData\Local\Temp\nsv6241.tmp\modern-wizard.bmp"
+WriteINIStr: wrote [Field 1] Text=C:\Users\DELLG5~1\AppData\Local\Temp\nsv6241.tmp\modern-wizard.bmp in C:\Users\DELLG5~1\AppData\Local\Temp\nsv6241.tmp\ioSpecial.ini
+Call: 1247
+File: overwriteflag=0, allowskipfilesflag=2, name="C:\Users\DELLG5~1\AppData\Local\Temp\nsv6241.tmp\modern-header.bmp"
+File: wrote 25818 to "C:\Users\DELLG5~1\AppData\Local\Temp\nsv6241.tmp\modern-header.bmp"
+WriteINIStr: wrote [Settings] NumFields=3 in C:\Users\DELLG5~1\AppData\Local\Temp\nsv6241.tmp\ioSpecial.ini
+WriteINIStr: wrote [Settings] NextButtonText= in C:\Users\DELLG5~1\AppData\Local\Temp\nsv6241.tmp\ioSpecial.ini
+WriteINIStr: wrote [Settings] CancelEnabled= in C:\Users\DELLG5~1\AppData\Local\Temp\nsv6241.tmp\ioSpecial.ini
+Call: 264
+Jump: 278
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+WriteINIStr: wrote [Field 2] Text=Welcome to the Shrew Soft VPN Client Setup Wizard in C:\Users\DELLG5~1\AppData\Local\Temp\nsv6241.tmp\ioSpecial.ini
+WriteINIStr: wrote [Field 2] Bottom=38 in C:\Users\DELLG5~1\AppData\Local\Temp\nsv6241.tmp\ioSpecial.ini
+WriteINIStr: wrote [Field 3] Top=45 in C:\Users\DELLG5~1\AppData\Local\Temp\nsv6241.tmp\ioSpecial.ini
+WriteINIStr: wrote [Field 3] Bottom=185 in C:\Users\DELLG5~1\AppData\Local\Temp\nsv6241.tmp\ioSpecial.ini
+Call: 264
+Jump: 278
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 291
+Jump: 277
+Jump: 291
+Jump: 277
+Jump: 291
+Jump: 277
+Jump: 291
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 291
+Jump: 277
+Jump: 291
+Jump: 277
+Jump: 291
+Jump: 277
+Jump: 291
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+Jump: 277
+WriteINIStr: wrote [Field 3] Text=This wizard will guide you through the installation of Shrew Soft VPN Client.\r\n\r\nIt is recommended that you close all other applications before starting Setup. This will make it possible to update relevant system files without having to reboot your computer.\r\n\r\nClick Next to continue. in C:\Users\DELLG5~1\AppData\Local\Temp\nsv6241.tmp\ioSpecial.ini
+Call: 1247
+File: overwriteflag=1, allowskipfilesflag=2, name="C:\Users\DELLG5~1\AppData\Local\Temp\nsv6241.tmp\InstallOptions.dll"
+File: wrote 14848 to "C:\Users\DELLG5~1\AppData\Local\Temp\nsv6241.tmp\InstallOptions.dll"
+Call: 1247
+File: overwriteflag=1, allowskipfilesflag=2, name="C:\Users\DELLG5~1\AppData\Local\Temp\nsv6241.tmp\InstallOptions.dll"
+File: skipped: "C:\Users\DELLG5~1\AppData\Local\Temp\nsv6241.tmp\InstallOptions.dll" (overwriteflag=1)
+Call: 988
+Call: 1247
+File: overwriteflag=1, allowskipfilesflag=2, name="C:\Users\DELLG5~1\AppData\Local\Temp\nsv6241.tmp\nsDialogs.dll"
+File: wrote 9728 to "C:\Users\DELLG5~1\AppData\Local\Temp\nsv6241.tmp\nsDialogs.dll"
+Call: 1247
+File: overwriteflag=1, allowskipfilesflag=2, name="C:\Users\DELLG5~1\AppData\Local\Temp\nsv6241.tmp\nsDialogs.dll"
+File: skipped: "C:\Users\DELLG5~1\AppData\Local\Temp\nsv6241.tmp\nsDialogs.dll" (overwriteflag=1)
+Call: 1247
+File: overwriteflag=1, allowskipfilesflag=0, name="C:\Users\DELLG5~1\AppData\Local\Temp\nsv6241.tmp\nsDialogs.dll"
+File: skipped: "C:\Users\DELLG5~1\AppData\Local\Temp\nsv6241.tmp\nsDialogs.dll" (overwriteflag=1)
+Call: 1247
+File: overwriteflag=1, allowskipfilesflag=2, name="C:\Users\DELLG5~1\AppData\Local\Temp\nsv6241.tmp\nsDialogs.dll"
+File: skipped: "C:\Users\DELLG5~1\AppData\Local\Temp\nsv6241.tmp\nsDialogs.dll" (overwriteflag=1)
+Call: 1247
+File: overwriteflag=1, allowskipfilesflag=0, name="C:\Users\DELLG5~1\AppData\Local\Temp\nsv6241.tmp\nsDialogs.dll"
+File: skipped: "C:\Users\DELLG5~1\AppData\Local\Temp\nsv6241.tmp\nsDialogs.dll" (overwriteflag=1)
+Call: 1247
+File: overwriteflag=1, allowskipfilesflag=0, name="C:\Users\DELLG5~1\AppData\Local\Temp\nsv6241.tmp\nsDialogs.dll"
+File: skipped: "C:\Users\DELLG5~1\AppData\Local\Temp\nsv6241.tmp\nsDialogs.dll" (overwriteflag=1)
+Call: 1247
+File: overwriteflag=1, allowskipfilesflag=0, name="C:\Users\DELLG5~1\AppData\Local\Temp\nsv6241.tmp\nsDialogs.dll"
+File: skipped: "C:\Users\DELLG5~1\AppData\Local\Temp\nsv6241.tmp\nsDialogs.dll" (overwriteflag=1)
+Call: 1247
+File: overwriteflag=1, allowskipfilesflag=0, name="C:\Users\DELLG5~1\AppData\Local\Temp\nsv6241.tmp\nsDialogs.dll"
+File: skipped: "C:\Users\DELLG5~1\AppData\Local\Temp\nsv6241.tmp\nsDialogs.dll" (overwriteflag=1)
+Call: 1247
+File: overwriteflag=1, allowskipfilesflag=2, name="C:\Users\DELLG5~1\AppData\Local\Temp\nsv6241.tmp\nsDialogs.dll"
+File: skipped: "C:\Users\DELLG5~1\AppData\Local\Temp\nsv6241.tmp\nsDialogs.dll" (overwriteflag=1)
+Call: 1101
+Aborting: ""
+Call: 1104
+Jump: 1247
