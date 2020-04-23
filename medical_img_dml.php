@@ -17,6 +17,11 @@ function medical_img_insert() {
 	$data['image'] = PrepareUploadedFile('image', 1024000,'jpg|jpeg|gif|png', false, '');
 	if($data['image']) createThumbnail($data['image'], getThumbnailSpecs('medical_img', 'image', 'tv'));
 	if($data['image']) createThumbnail($data['image'], getThumbnailSpecs('medical_img', 'image', 'dv'));
+	if($data['image']== '') {
+		echo StyleSheet() . "\n\n<div class=\"alert alert-danger\">" . $Translation['error:'] . " 'Image': " . $Translation['field not null'] . '<br><br>';
+		echo '<a href="" onclick="history.go(-1); return false;">'.$Translation['< back'].'</a></div>';
+		exit;
+	}
 
 	/* for empty upload fields, when saving a copy of an existing record, copy the original upload field */
 	if($_REQUEST['SelectedID']) {
@@ -99,6 +104,19 @@ function medical_img_delete($selected_id, $AllowDeleteOfParents=false, $skipChec
 			return $Translation['Couldn\'t delete this record'];
 	}
 
+	// delete file stored in the 'image' field
+	$res = sql("select `image` from `medical_img` where `id`='$selected_id'", $eo);
+	if($row=@db_fetch_row($res)) {
+		if($row[0]!='') {
+			@unlink(getUploadDir('').$row[0]);
+			preg_match('/^[a-z0-9_]+\.(gif|png|jpg|jpeg|jpe)$/i', $row[0], $m);
+			$thumbDV=str_replace(".$m[1]ffffgggg", "_dv.$m[1]", $row[0].'ffffgggg');
+			$thumbTV=str_replace(".$m[1]ffffgggg", "_tv.$m[1]", $row[0].'ffffgggg');
+			@unlink(getUploadDir('').$thumbTV);
+			@unlink(getUploadDir('').$thumbDV);
+		}
+	}
+
 	sql("delete from `medical_img` where `id`='$selected_id'", $eo);
 
 	// hook: medical_img_after_delete
@@ -124,15 +142,31 @@ function medical_img_update($selected_id) {
 		return false;
 	}
 
+	$data['image'] = PrepareUploadedFile('image', 1024000, 'jpg|jpeg|gif|png', false, "");
+	$existing_image = sqlValue("select `image` from `medical_img` where `id`='" . makeSafe($selected_id) . "'");
+	if($data['image'] == '' && !$existing_image) {
+		echo StyleSheet() . "\n\n<div class=\"alert alert-danger\">{$Translation['error:']} 'Image': {$Translation['field not null']}<br><br>";
+		echo '<a href="" onclick="history.go(-1); return false;">'.$Translation['< back'].'</a></div>';
+		exit;
+	}
 	$data['description'] = br2nl(makeSafe($_REQUEST['description']));
 	$data['selectedID'] = makeSafe($selected_id);
-	if($_REQUEST['image_remove'] == 1) {
-		$data['image'] = '';
-	} else {
-		$data['image'] = PrepareUploadedFile('image', 1024000, 'jpg|jpeg|gif|png', false, "");
 		if($data['image']) createThumbnail($data['image'], getThumbnailSpecs('medical_img', 'image', 'tv'));
 		if($data['image']) createThumbnail($data['image'], getThumbnailSpecs('medical_img', 'image', 'dv'));
-	}
+		// delete file from server
+		if($data['image'] != '') {
+			$res = sql("select `image` from `medical_img` where `id`='" . makeSafe($selected_id) . "'", $eo);
+			if($row = @db_fetch_row($res)) {
+				if($row[0] != '') {
+					@unlink(getUploadDir('') . $row[0]);
+					preg_match('/^[a-z0-9_]+\.(gif|png|jpg|jpeg|jpe)$/i', $row[0], $m);
+					$thumbDV = str_replace(".$m[1]ffffgggg", "_dv.$m[1]", $row[0] . 'ffffgggg');
+					$thumbTV = str_replace(".$m[1]ffffgggg", "_tv.$m[1]", $row[0] . 'ffffgggg');
+					@unlink(getUploadDir('') . $thumbTV);
+					@unlink(getUploadDir('') . $thumbDV);
+				}
+			}
+		}
 
 	// hook: medical_img_before_update
 	if(function_exists('medical_img_before_update')) {
@@ -141,7 +175,7 @@ function medical_img_update($selected_id) {
 	}
 
 	$o = array('silentErrors' => true);
-	sql('update `medical_img` set       ' . ($data['image']!='' ? "`image`='{$data['image']}'" : ($_REQUEST['image_remove'] != 1 ? '`image`=`image`' : '`image`=NULL')) . ', `description`=' . (($data['description'] !== '' && $data['description'] !== NULL) ? "'{$data['description']}'" : 'NULL') . " where `id`='".makeSafe($selected_id)."'", $o);
+	sql('update `medical_img` set       ' . ($data['image']!='' ? "`image`='{$data['image']}'" : '`image`=`image`') . ', `description`=' . (($data['description'] !== '' && $data['description'] !== NULL) ? "'{$data['description']}'" : 'NULL') . " where `id`='".makeSafe($selected_id)."'", $o);
 	if($o['error']!='') {
 		echo $o['error'];
 		echo '<a href="medical_img_view.php?SelectedID='.urlencode($selected_id)."\">{$Translation['< back']}</a>";

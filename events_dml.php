@@ -30,12 +30,22 @@ function events_insert() {
 		if($data['diagnosis'] == empty_lookup_value) { $data['diagnosis'] = ''; }
 	$data['comments'] = $_REQUEST['comments'];
 		if($data['comments'] == empty_lookup_value) { $data['comments'] = ''; }
+	if($data['date']== '') {
+		echo StyleSheet() . "\n\n<div class=\"alert alert-danger\">" . $Translation['error:'] . " 'Date': " . $Translation['field not null'] . '<br><br>';
+		echo '<a href="" onclick="history.go(-1); return false;">'.$Translation['< back'].'</a></div>';
+		exit;
+	}
 	if($data['status']== '') {
 		echo StyleSheet() . "\n\n<div class=\"alert alert-danger\">" . $Translation['error:'] . " 'Status': " . $Translation['field not null'] . '<br><br>';
 		echo '<a href="" onclick="history.go(-1); return false;">'.$Translation['< back'].'</a></div>';
 		exit;
 	}
 	if($data['time'] == '') $data['time'] = "12:00";
+	if($data['time']== '') {
+		echo StyleSheet() . "\n\n<div class=\"alert alert-danger\">" . $Translation['error:'] . " 'Time': " . $Translation['field not null'] . '<br><br>';
+		echo '<a href="" onclick="history.go(-1); return false;">'.$Translation['< back'].'</a></div>';
+		exit;
+	}
 
 	// hook: events_before_insert
 	if(function_exists('events_before_insert')) {
@@ -134,6 +144,11 @@ function events_update($selected_id) {
 		if($data['title'] == empty_lookup_value) { $data['title'] = ''; }
 	$data['date'] = intval($_REQUEST['dateYear']) . '-' . intval($_REQUEST['dateMonth']) . '-' . intval($_REQUEST['dateDay']);
 	$data['date'] = parseMySQLDate($data['date'], '');
+	if($data['date']=='') {
+		echo StyleSheet() . "\n\n<div class=\"alert alert-danger\">{$Translation['error:']} 'Date': {$Translation['field not null']}<br><br>";
+		echo '<a href="" onclick="history.go(-1); return false;">'.$Translation['< back'].'</a></div>';
+		exit;
+	}
 	$data['status'] = makeSafe($_REQUEST['status']);
 		if($data['status'] == empty_lookup_value) { $data['status'] = ''; }
 	if($data['status']=='') {
@@ -146,6 +161,11 @@ function events_update($selected_id) {
 	$data['time'] = makeSafe($_REQUEST['time']);
 		if($data['time'] == empty_lookup_value) { $data['time'] = ''; }
 	$data['time'] = time24($data['time']);
+	if($data['time']=='') {
+		echo StyleSheet() . "\n\n<div class=\"alert alert-danger\">{$Translation['error:']} 'Time': {$Translation['field not null']}<br><br>";
+		echo '<a href="" onclick="history.go(-1); return false;">'.$Translation['< back'].'</a></div>';
+		exit;
+	}
 	$data['prescription'] = makeSafe($_REQUEST['prescription']);
 		if($data['prescription'] == empty_lookup_value) { $data['prescription'] = ''; }
 	$data['diagnosis'] = makeSafe($_REQUEST['diagnosis']);

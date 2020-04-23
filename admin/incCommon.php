@@ -4,7 +4,7 @@
 	// incCommon.php is included only in the admin area, so if this flag is defined, this indicates we're in admin area
 	define('ADMIN_AREA', true);
 
-	if(!defined('datalist_db_encoding')) define('datalist_db_encoding', 'iso-8859-1');
+	if(!defined('datalist_db_encoding')) define('datalist_db_encoding', 'UTF-8');
 	if(function_exists('set_magic_quotes_runtime')) @set_magic_quotes_runtime(0);
 	ob_start();
 	$currDir = dirname(__FILE__);

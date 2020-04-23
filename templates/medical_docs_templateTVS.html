@@ -6,8 +6,5 @@
 <!--     $options->ShowTableHeader = 0;     -->
 
 		<td id="medical_docs-patient-<%%VALUE(id)%%>" class="medical_docs-patient"><%%VALUE(patient)%%></td>
-		<td id="medical_docs-doc-<%%VALUE(id)%%>" class="medical_docs-doc"><a href="link.php?t=medical_docs&f=doc&i=<%%VALUE(id)%%>" target="_blank" title="<%%VALUE(doc)%%>" class="btn btn-default"><i class="glyphicon glyphicon-file text-info"></i></a></td>
+		<td id="medical_docs-doc-<%%VALUE(id)%%>" class="medical_docs-doc"><%%VALUE(doc)%%></td>
 		<td id="medical_docs-description-<%%VALUE(id)%%>" class="medical_docs-description"><%%VALUE(description)%%></td>
-		<script>$j(function(){
-			var e_doc = '<%%VALUE(doc)%%>'; if(e_doc == '' || e_doc == '&nbsp;') $j(/*<*/ '#medical_docs-doc-<%%VALUE(id)%%>' /*>*/).html('');
-		});</script>

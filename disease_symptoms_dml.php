@@ -18,6 +18,16 @@ function disease_symptoms_insert() {
 	$data['symptoms'] = br2nl($_REQUEST['symptoms']);
 	$data['reference'] = $_REQUEST['reference'];
 		if($data['reference'] == empty_lookup_value) { $data['reference'] = ''; }
+	if($data['disease']== '') {
+		echo StyleSheet() . "\n\n<div class=\"alert alert-danger\">" . $Translation['error:'] . " 'Disease': " . $Translation['field not null'] . '<br><br>';
+		echo '<a href="" onclick="history.go(-1); return false;">'.$Translation['< back'].'</a></div>';
+		exit;
+	}
+	if($data['symptoms']== '') {
+		echo StyleSheet() . "\n\n<div class=\"alert alert-danger\">" . $Translation['error:'] . " 'Symptoms': " . $Translation['field not null'] . '<br><br>';
+		echo '<a href="" onclick="history.go(-1); return false;">'.$Translation['< back'].'</a></div>';
+		exit;
+	}
 
 	// hook: disease_symptoms_before_insert
 	if(function_exists('disease_symptoms_before_insert')) {
@@ -114,7 +124,17 @@ function disease_symptoms_update($selected_id) {
 
 	$data['disease'] = makeSafe($_REQUEST['disease']);
 		if($data['disease'] == empty_lookup_value) { $data['disease'] = ''; }
+	if($data['disease']=='') {
+		echo StyleSheet() . "\n\n<div class=\"alert alert-danger\">{$Translation['error:']} 'Disease': {$Translation['field not null']}<br><br>";
+		echo '<a href="" onclick="history.go(-1); return false;">'.$Translation['< back'].'</a></div>';
+		exit;
+	}
 	$data['symptoms'] = br2nl(makeSafe($_REQUEST['symptoms']));
+	if($data['symptoms']=='') {
+		echo StyleSheet() . "\n\n<div class=\"alert alert-danger\">{$Translation['error:']} 'Symptoms': {$Translation['field not null']}<br><br>";
+		echo '<a href="" onclick="history.go(-1); return false;">'.$Translation['< back'].'</a></div>';
+		exit;
+	}
 	$data['reference'] = makeSafe($_REQUEST['reference']);
 		if($data['reference'] == empty_lookup_value) { $data['reference'] = ''; }
 	$data['selectedID'] = makeSafe($selected_id);

@@ -76,6 +76,11 @@ function patients_insert() {
 		echo '<a href="" onclick="history.go(-1); return false;">'.$Translation['< back'].'</a></div>';
 		exit;
 	}
+	if($data['birth_date']== '') {
+		echo StyleSheet() . "\n\n<div class=\"alert alert-danger\">" . $Translation['error:'] . " 'Birth date': " . $Translation['field not null'] . '<br><br>';
+		echo '<a href="" onclick="history.go(-1); return false;">'.$Translation['< back'].'</a></div>';
+		exit;
+	}
 	if($data['tobacco_usage'] == '') $data['tobacco_usage'] = "Unknown";
 	if($data['tobacco_usage']== '') {
 		echo StyleSheet() . "\n\n<div class=\"alert alert-danger\">" . $Translation['error:'] . " 'Tobacco usage': " . $Translation['field not null'] . '<br><br>';
@@ -283,6 +288,11 @@ function patients_update($selected_id) {
 	}
 	$data['birth_date'] = intval($_REQUEST['birth_dateYear']) . '-' . intval($_REQUEST['birth_dateMonth']) . '-' . intval($_REQUEST['birth_dateDay']);
 	$data['birth_date'] = parseMySQLDate($data['birth_date'], '');
+	if($data['birth_date']=='') {
+		echo StyleSheet() . "\n\n<div class=\"alert alert-danger\">{$Translation['error:']} 'Birth date': {$Translation['field not null']}<br><br>";
+		echo '<a href="" onclick="history.go(-1); return false;">'.$Translation['< back'].'</a></div>';
+		exit;
+	}
 	$data['address'] = br2nl(makeSafe($_REQUEST['address']));
 	$data['city'] = makeSafe($_REQUEST['city']);
 		if($data['city'] == empty_lookup_value) { $data['city'] = ''; }

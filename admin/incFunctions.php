@@ -94,7 +94,7 @@
 					'Description' => '',
 					'tableIcon' => 'resources/table_icons/administrator.png',
 					'group' => $tg[0],
-					'homepageShowCount' => 0
+					'homepageShowCount' => 1
 				),
 				'disease_symptoms' => array(
 					'Caption' => 'Disease symptoms',
@@ -106,21 +106,21 @@
 				'events' => array(
 					'Caption' => 'Appointments',
 					'Description' => '',
-					'tableIcon' => 'table.gif',
+					'tableIcon' => 'resources/table_icons/clock_.png',
 					'group' => $tg[0],
-					'homepageShowCount' => 0
+					'homepageShowCount' => 1
 				),
 				'medical_img' => array(
 					'Caption' => 'Medical img',
 					'Description' => '',
-					'tableIcon' => 'resources/table_icons/cash_terminal.png',
+					'tableIcon' => 'resources/table_icons/action_log.png',
 					'group' => $tg[0],
 					'homepageShowCount' => 0
 				),
 				'medical_docs' => array(
 					'Caption' => 'Medical docs',
 					'Description' => '',
-					'tableIcon' => 'table.gif',
+					'tableIcon' => 'resources/table_icons/active_sessions.png',
 					'group' => $tg[0],
 					'homepageShowCount' => 0
 				),

@@ -68,7 +68,7 @@
 	$x->AllowSelection = 1;
 	$x->HideTableView = ($perm[2]==0 ? 1 : 0);
 	$x->AllowDelete = $perm[4];
-	$x->AllowMassDelete = false;
+	$x->AllowMassDelete = true;
 	$x->AllowInsert = $perm[1];
 	$x->AllowUpdate = $perm[3];
 	$x->SeparateDV = 1;
@@ -88,7 +88,7 @@
 	$x->TableTitle = "Disease symptoms";
 	$x->TableIcon = "resources/table_icons/health.png";
 	$x->PrimaryKey = "`disease_symptoms`.`id`";
-	$x->DefaultSortField = '2';
+	$x->DefaultSortField = '1';
 	$x->DefaultSortDirection = 'asc';
 
 	$x->ColWidth   = array(  150, 300, 150);

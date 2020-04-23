@@ -9,8 +9,6 @@
 		<div class="col-xs-12">
 			<input type="hidden" id="events_hclink" value="events_view.php?filterer_name_patient=<%%URLVALUE(id)%%>&<%%EMBEDDED%%>">
 			<input type="hidden" id="medical_img_hclink" value="medical_img_view.php?filterer_patient=<%%URLVALUE(id)%%>&<%%EMBEDDED%%>">
-			<a class="hidden-xs btn btn-default btn-lg pull-right hidden hspacer-sm" href="medical_docs_view.php?filterer_patient=<%%URLVALUE(id)%%>&<%%EMBEDDED%%>" id="medical_docs_link"><i class="glyphicon glyphicon-list-alt"></i> Medical docs</a>
-			<a class="visible-xs btn btn-default btn-lg btn-block hidden vspacer-sm" href="medical_docs_view.php?filterer_patient=<%%URLVALUE(id)%%>&<%%EMBEDDED%%>" id="xs_medical_docs_link"><i class="glyphicon glyphicon-list-alt"></i> Medical docs</a>
 			<input type="hidden" id="medical_docs_hclink" value="medical_docs_view.php?filterer_patient=<%%URLVALUE(id)%%>&<%%EMBEDDED%%>">
 			<div class="clearfix"></div>
 		</div>
@@ -64,7 +62,7 @@
 
 				<div class="form-group">
 					<hr class="hidden-md hidden-lg">
-					<label for="birth_date" class="control-label col-lg-3">Birth date</label>
+					<label for="birth_date" class="control-label col-lg-3">Birth date<span class="text-danger"><%%TRANSLATION(*)%%></span></label>
 					<div class="col-lg-9">
 						<%%COMBO(birth_date)%%>
 					</div>

@@ -23,7 +23,7 @@
 	// Fields that can be displayed in the table view
 	$x->QueryFieldsTV = array(
 		"`medical_img`.`id`" => "id",
-		"IF(    CHAR_LENGTH(`patients1`.`last_name`) || CHAR_LENGTH(`patients1`.`first_name`), CONCAT_WS('',   `patients1`.`last_name`, ',', `patients1`.`first_name`), '') /* Patient */" => "patient",
+		"IF(    CHAR_LENGTH(`patients1`.`last_name`) || CHAR_LENGTH(`patients1`.`first_name`), CONCAT_WS('',   `patients1`.`last_name`, ', ', `patients1`.`first_name`), '') /* Patient */" => "patient",
 		"`medical_img`.`image`" => "image",
 		"`medical_img`.`description`" => "description",
 	);
@@ -38,21 +38,21 @@
 	// Fields that can be displayed in the csv file
 	$x->QueryFieldsCSV = array(
 		"`medical_img`.`id`" => "id",
-		"IF(    CHAR_LENGTH(`patients1`.`last_name`) || CHAR_LENGTH(`patients1`.`first_name`), CONCAT_WS('',   `patients1`.`last_name`, ',', `patients1`.`first_name`), '') /* Patient */" => "patient",
+		"IF(    CHAR_LENGTH(`patients1`.`last_name`) || CHAR_LENGTH(`patients1`.`first_name`), CONCAT_WS('',   `patients1`.`last_name`, ', ', `patients1`.`first_name`), '') /* Patient */" => "patient",
 		"`medical_img`.`image`" => "image",
 		"`medical_img`.`description`" => "description",
 	);
 	// Fields that can be filtered
 	$x->QueryFieldsFilters = array(
 		"`medical_img`.`id`" => "ID",
-		"IF(    CHAR_LENGTH(`patients1`.`last_name`) || CHAR_LENGTH(`patients1`.`first_name`), CONCAT_WS('',   `patients1`.`last_name`, ',', `patients1`.`first_name`), '') /* Patient */" => "Patient",
+		"IF(    CHAR_LENGTH(`patients1`.`last_name`) || CHAR_LENGTH(`patients1`.`first_name`), CONCAT_WS('',   `patients1`.`last_name`, ', ', `patients1`.`first_name`), '') /* Patient */" => "Patient",
 		"`medical_img`.`description`" => "Description",
 	);
 
 	// Fields that can be quick searched
 	$x->QueryFieldsQS = array(
 		"`medical_img`.`id`" => "id",
-		"IF(    CHAR_LENGTH(`patients1`.`last_name`) || CHAR_LENGTH(`patients1`.`first_name`), CONCAT_WS('',   `patients1`.`last_name`, ',', `patients1`.`first_name`), '') /* Patient */" => "patient",
+		"IF(    CHAR_LENGTH(`patients1`.`last_name`) || CHAR_LENGTH(`patients1`.`first_name`), CONCAT_WS('',   `patients1`.`last_name`, ', ', `patients1`.`first_name`), '') /* Patient */" => "patient",
 		"`medical_img`.`description`" => "description",
 	);
 
@@ -66,7 +66,7 @@
 	$x->AllowSelection = 1;
 	$x->HideTableView = ($perm[2]==0 ? 1 : 0);
 	$x->AllowDelete = $perm[4];
-	$x->AllowMassDelete = false;
+	$x->AllowMassDelete = true;
 	$x->AllowInsert = $perm[1];
 	$x->AllowUpdate = $perm[3];
 	$x->SeparateDV = 0;
@@ -84,8 +84,10 @@
 	$x->ScriptFileName = "medical_img_view.php";
 	$x->RedirectAfterInsert = "medical_img_view.php?SelectedID=#ID#";
 	$x->TableTitle = "Medical img";
-	$x->TableIcon = "resources/table_icons/cash_terminal.png";
+	$x->TableIcon = "resources/table_icons/action_log.png";
 	$x->PrimaryKey = "`medical_img`.`id`";
+	$x->DefaultSortField = '1';
+	$x->DefaultSortDirection = 'asc';
 
 	$x->ColWidth   = array(  150, 150, 150);
 	$x->ColCaption = array("Patient", "Image", "Description");
@@ -98,7 +100,7 @@
 	$x->TemplateDV = 'templates/medical_img_templateDV.html';
 	$x->TemplateDVP = 'templates/medical_img_templateDVP.html';
 
-	$x->ShowTableHeader = 1;
+	$x->ShowTableHeader = 0;
 	$x->TVClasses = "";
 	$x->DVClasses = "";
 	$x->HighlightColor = '#FFF0C2';

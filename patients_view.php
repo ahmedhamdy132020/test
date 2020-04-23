@@ -176,7 +176,7 @@
 	$x->AllowSelection = 1;
 	$x->HideTableView = ($perm[2]==0 ? 1 : 0);
 	$x->AllowDelete = $perm[4];
-	$x->AllowMassDelete = false;
+	$x->AllowMassDelete = true;
 	$x->AllowInsert = $perm[1];
 	$x->AllowUpdate = $perm[3];
 	$x->SeparateDV = 1;
@@ -210,7 +210,7 @@
 	$x->TemplateDV = 'templates/patients_templateDV.html';
 	$x->TemplateDVP = 'templates/patients_templateDVP.html';
 
-	$x->ShowTableHeader = 1;
+	$x->ShowTableHeader = 0;
 	$x->TVClasses = "";
 	$x->DVClasses = "";
 	$x->HighlightColor = '#FFF0C2';

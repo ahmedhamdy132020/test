@@ -47,9 +47,9 @@
 			/* 'table_name' => ['table caption', 'homepage description', 'icon', 'table group name'] */   
 			'patients' => array('Patients', '', 'resources/table_icons/administrator.png', 'None'),
 			'disease_symptoms' => array('Disease symptoms', '', 'resources/table_icons/health.png', 'None'),
-			'events' => array('Appointments', '', 'table.gif', 'None'),
-			'medical_img' => array('Medical img', '', 'resources/table_icons/cash_terminal.png', 'None'),
-			'medical_docs' => array('Medical docs', '', 'table.gif', 'None')
+			'events' => array('Appointments', '', 'resources/table_icons/clock_.png', 'None'),
+			'medical_img' => array('Medical img', '', 'resources/table_icons/action_log.png', 'None'),
+			'medical_docs' => array('Medical docs', '', 'resources/table_icons/active_sessions.png', 'None')
 		);
 		if($skip_authentication || getLoggedAdmin()) return $arrTables;
 
@@ -139,8 +139,8 @@
 			'patients' => "`patients`.`id` as 'id', `patients`.`last_name` as 'last_name', `patients`.`first_name` as 'first_name', `patients`.`gender` as 'gender', `patients`.`sexual_orientation` as 'sexual_orientation', if(`patients`.`birth_date`,date_format(`patients`.`birth_date`,'%m/%d/%Y'),'') as 'birth_date', `patients`.`age` as 'age', `patients`.`image` as 'image', `patients`.`address` as 'address', `patients`.`city` as 'city', `patients`.`state` as 'state', `patients`.`zip` as 'zip', CONCAT_WS('-', LEFT(`patients`.`home_phone`,3), MID(`patients`.`home_phone`,4,3), RIGHT(`patients`.`home_phone`,4)) as 'home_phone', CONCAT_WS('-', LEFT(`patients`.`work_phone`,3), MID(`patients`.`work_phone`,4,3), RIGHT(`patients`.`work_phone`,4)) as 'work_phone', CONCAT_WS('-', LEFT(`patients`.`mobile`,3), MID(`patients`.`mobile`,4,3)) as 'mobile', `patients`.`tobacco_usage` as 'tobacco_usage', `patients`.`alcohol_intake` as 'alcohol_intake', `patients`.`history` as 'history', `patients`.`surgical_history` as 'surgical_history', `patients`.`obstetric_history` as 'obstetric_history', `patients`.`genetic_diseases` as 'genetic_diseases', `patients`.`contact_person` as 'contact_person', `patients`.`other_details` as 'other_details', `patients`.`comments` as 'comments', DATE_FORMAT(`patients`.`filed`, '%c/%e/%Y %l:%i%p') as 'filed', DATE_FORMAT(`patients`.`last_modified`, '%c/%e/%Y %l:%i%p') as 'last_modified'",
 			'disease_symptoms' => "`disease_symptoms`.`id` as 'id', `disease_symptoms`.`disease` as 'disease', `disease_symptoms`.`symptoms` as 'symptoms', `disease_symptoms`.`reference` as 'reference'",
 			'events' => "`events`.`id` as 'id', `events`.`title` as 'title', if(`events`.`date`,date_format(`events`.`date`,'%m/%d/%Y'),'') as 'date', `events`.`status` as 'status', IF(    CHAR_LENGTH(`patients1`.`last_name`) || CHAR_LENGTH(`patients1`.`first_name`), CONCAT_WS('',   `patients1`.`last_name`, ',', `patients1`.`first_name`), '') as 'name_patient', TIME_FORMAT(`events`.`time`, '%r') as 'time', `events`.`prescription` as 'prescription', `events`.`diagnosis` as 'diagnosis', `events`.`comments` as 'comments'",
-			'medical_img' => "`medical_img`.`id` as 'id', IF(    CHAR_LENGTH(`patients1`.`last_name`) || CHAR_LENGTH(`patients1`.`first_name`), CONCAT_WS('',   `patients1`.`last_name`, ',', `patients1`.`first_name`), '') as 'patient', `medical_img`.`image` as 'image', `medical_img`.`description` as 'description'",
-			'medical_docs' => "`medical_docs`.`id` as 'id', IF(    CHAR_LENGTH(`patients1`.`last_name`) || CHAR_LENGTH(`patients1`.`first_name`), CONCAT_WS('',   `patients1`.`last_name`, ',', `patients1`.`first_name`), '') as 'patient', `medical_docs`.`doc` as 'doc', `medical_docs`.`description` as 'description'",
+			'medical_img' => "`medical_img`.`id` as 'id', IF(    CHAR_LENGTH(`patients1`.`last_name`) || CHAR_LENGTH(`patients1`.`first_name`), CONCAT_WS('',   `patients1`.`last_name`, ', ', `patients1`.`first_name`), '') as 'patient', `medical_img`.`image` as 'image', `medical_img`.`description` as 'description'",
+			'medical_docs' => "`medical_docs`.`id` as 'id', IF(    CHAR_LENGTH(`patients1`.`last_name`) || CHAR_LENGTH(`patients1`.`first_name`), CONCAT_WS('',   `patients1`.`last_name`, ', ', `patients1`.`first_name`), '') as 'patient', `medical_docs`.`doc` as 'doc', `medical_docs`.`description` as 'description'",
 		);
 
 		if(isset($sql_fields[$table_name])) {

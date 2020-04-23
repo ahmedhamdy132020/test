@@ -54,7 +54,7 @@
 			'patient' => array(
 				'parent_table' => 'patients',
 				'parent_pk_field' => 'id',
-				'parent_caption' => 'IF(CHAR_LENGTH(`patients`.`last_name`) || CHAR_LENGTH(`patients`.`first_name`), CONCAT_WS(\'\', `patients`.`last_name`, \',\', `patients`.`first_name`), \'\')',
+				'parent_caption' => 'IF(CHAR_LENGTH(`patients`.`last_name`) || CHAR_LENGTH(`patients`.`first_name`), CONCAT_WS(\'\', `patients`.`last_name`, \', \', `patients`.`first_name`), \'\')',
 				'parent_from' => '`patients` ',
 				'filterers' => array(),
 				'custom_query' => '',
@@ -67,7 +67,7 @@
 			'patient' => array(
 				'parent_table' => 'patients',
 				'parent_pk_field' => 'id',
-				'parent_caption' => 'IF(CHAR_LENGTH(`patients`.`last_name`) || CHAR_LENGTH(`patients`.`first_name`), CONCAT_WS(\'\', `patients`.`last_name`, \',\', `patients`.`first_name`), \'\')',
+				'parent_caption' => 'IF(CHAR_LENGTH(`patients`.`last_name`) || CHAR_LENGTH(`patients`.`first_name`), CONCAT_WS(\'\', `patients`.`last_name`, \', \', `patients`.`first_name`), \'\')',
 				'parent_from' => '`patients` ',
 				'filterers' => array(),
 				'custom_query' => '',

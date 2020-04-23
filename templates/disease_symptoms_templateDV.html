@@ -27,15 +27,15 @@
 
 				<div class="form-group">
 					<hr class="hidden-md hidden-lg">
-					<label for="disease" class="control-label col-lg-3">Disease</label>
+					<label for="disease" class="control-label col-lg-3">Disease<span class="text-danger"><%%TRANSLATION(*)%%></span></label>
 					<div class="col-lg-9">
-						<input maxlength="200" type="text" class="form-control" name="disease" id="disease" value="<%%VALUE(disease)%%>">
+						<input maxlength="200" type="text" class="form-control" name="disease" id="disease" value="<%%VALUE(disease)%%>" required><div class="text-danger vspacer-md" id="disease-uniqueness-note" style="display: none;"><%%TRANSLATION(unique field error)%%></div>
 					</div>
 				</div>
 
 				<div class="form-group">
 					<hr class="hidden-md hidden-lg">
-					<label for="symptoms" class="control-label col-lg-3">Symptoms</label>
+					<label for="symptoms" class="control-label col-lg-3">Symptoms<span class="text-danger"><%%TRANSLATION(*)%%></span></label>
 					<div class="col-lg-9">
 						<textarea class="form-control" name="symptoms" id="symptoms" rows="5"><%%VALUE(symptoms)%%></textarea>
 					</div>
@@ -178,6 +178,7 @@
 				}
 			});
 
+			enforce_uniqueness('disease_symptoms', 'disease');
 
 			/* load admin tools for admin user */
 			if(!add_new_mode) {

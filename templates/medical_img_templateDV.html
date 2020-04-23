@@ -35,7 +35,7 @@
 
 				<div class="form-group">
 					<hr class="hidden-md hidden-lg">
-					<label class="control-label col-lg-3">Image <i class="glyphicon glyphicon-info-sign text-info" data-toggle="collapse" data-target="#image-description"></i></label>
+					<label class="control-label col-lg-3">Image<span class="text-danger"><%%TRANSLATION(*)%%></span> <i class="glyphicon glyphicon-info-sign text-info" data-toggle="collapse" data-target="#image-description"></i></label>
 					<div class="col-lg-9">
 						<span class="help-block collapse" id="image-description"><div class="alert alert-info">Maximum file size allowed: 1000 KB.<br>Allowed file types: jpg, jpeg, gif, png</div></span>
 
@@ -47,7 +47,6 @@
 												<div class="pull-right well upload-toolbox">
 							<div class="hidden-md hidden-lg vspacer-lg"></div>
 							<%%UPLOADFILE(image)%%>
-							<%%REMOVEFILE(image)%%>
 							<div class="text-bold text-danger file-type-error hidden">
 								<%%TRANSLATION(invalid file type)%%>
 							</div>

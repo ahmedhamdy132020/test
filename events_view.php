@@ -93,7 +93,7 @@
 	$x->AllowSelection = 1;
 	$x->HideTableView = ($perm[2]==0 ? 1 : 0);
 	$x->AllowDelete = $perm[4];
-	$x->AllowMassDelete = false;
+	$x->AllowMassDelete = true;
 	$x->AllowInsert = $perm[1];
 	$x->AllowUpdate = $perm[3];
 	$x->SeparateDV = 1;
@@ -111,8 +111,10 @@
 	$x->ScriptFileName = "events_view.php";
 	$x->RedirectAfterInsert = "events_view.php?SelectedID=#ID#";
 	$x->TableTitle = "Appointments";
-	$x->TableIcon = "table.gif";
+	$x->TableIcon = "resources/table_icons/clock_.png";
 	$x->PrimaryKey = "`events`.`id`";
+	$x->DefaultSortField = '1';
+	$x->DefaultSortDirection = 'asc';
 
 	$x->ColWidth   = array(  150, 150, 150, 150, 150, 150, 150, 150);
 	$x->ColCaption = array("Appointment Type", "Date", "Status", "Patient Name", "Time", "Prescription", "Diagnosis", "Comments");

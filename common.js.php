@@ -1,5 +1,5 @@
 <?php
-	if(!defined('datalist_db_encoding')) define('datalist_db_encoding', 'iso-8859-1');
+	if(!defined('datalist_db_encoding')) define('datalist_db_encoding', 'UTF-8');
 	if(function_exists('date_default_timezone_set')) @date_default_timezone_set('America/New_York');
 
 	/* force caching */
@@ -330,6 +330,10 @@ function patients_validateData() {
 	if($j('#gender').val() == ''){ modal_window({ message: '<div class="alert alert-danger"><?php echo addslashes($Translation['field not null']); ?></div>', title: "<?php echo addslashes($Translation['error:']); ?> Gender", close: function() { /* */ $j('[name=gender]').eq(0).focus().parents('.form-group').addClass('has-error'); }, footer: [{ label: '<?php echo addslashes($Translation['ok']); ?>' }] }); return false; };
 	/* Field sexual_orientation can't be empty */
 	if($j('#sexual_orientation').val() == ''){ modal_window({ message: '<div class="alert alert-danger"><?php echo addslashes($Translation['field not null']); ?></div>', title: "<?php echo addslashes($Translation['error:']); ?> sexual_orientation", close: function() { /* */ $j('[name=sexual_orientation]').eq(0).focus().parents('.form-group').addClass('has-error'); }, footer: [{ label: '<?php echo addslashes($Translation['ok']); ?>' }] }); return false; };
+	/* Date field birth_date can't be empty */
+	if($j('#birth_date-dd').val() == ''){ modal_window({ message: '<div class="alert alert-danger"><?php echo addslashes($Translation['field not null']); ?></div>', title: "<?php echo addslashes($Translation['error:']); ?> Birth date", close: function() { /* */ $j('#birth_date-dd').focus().parents('.form-group').addClass('has-error'); } }); return false; };
+	if($j('#birth_date-mm').val() == ''){ modal_window({ message: '<div class="alert alert-danger"><?php echo addslashes($Translation['field not null']); ?></div>', title: "<?php echo addslashes($Translation['error:']); ?> Birth date", close: function() { /* */ $j('#birth_date-mm').focus().parents('.form-group').addClass('has-error'); } }); return false; };
+	if($j('#birth_date').val() == ''){ modal_window({ message: '<div class="alert alert-danger"><?php echo addslashes($Translation['field not null']); ?></div>', title: "<?php echo addslashes($Translation['error:']); ?> Birth date", close: function() { /* */ $j('#birth_date').focus().parents('.form-group').addClass('has-error'); } }); return false; };
 	/* image field file type and size check */
 	if($j('#image').val() != '') {
 		if(!AppGini.checkFileUpload('image', 'jpg|jpeg|gif|png', 1024000)) return false;
@@ -345,16 +349,28 @@ function patients_validateData() {
 }
 function disease_symptoms_validateData() {
 	$j('.has-error').removeClass('has-error');
+	/* Field disease can't be empty */
+	if($j('#disease').val() == ''){ modal_window({ message: '<div class="alert alert-danger"><?php echo addslashes($Translation['field not null']); ?></div>', title: "<?php echo addslashes($Translation['error:']); ?> Disease", close: function() { /* */ $j('[name=disease]').eq(0).focus().parents('.form-group').addClass('has-error'); }, footer: [{ label: '<?php echo addslashes($Translation['ok']); ?>' }] }); return false; };
+	/* Field symptoms can't be empty */
+	if($j('#symptoms').val() == ''){ modal_window({ message: '<div class="alert alert-danger"><?php echo addslashes($Translation['field not null']); ?></div>', title: "<?php echo addslashes($Translation['error:']); ?> Symptoms", close: function() { /* */ $j('[name=symptoms]').eq(0).focus().parents('.form-group').addClass('has-error'); }, footer: [{ label: '<?php echo addslashes($Translation['ok']); ?>' }] }); return false; };
 	return true;
 }
 function events_validateData() {
 	$j('.has-error').removeClass('has-error');
+	/* Date field date can't be empty */
+	if($j('#date-dd').val() == ''){ modal_window({ message: '<div class="alert alert-danger"><?php echo addslashes($Translation['field not null']); ?></div>', title: "<?php echo addslashes($Translation['error:']); ?> Date", close: function() { /* */ $j('#date-dd').focus().parents('.form-group').addClass('has-error'); } }); return false; };
+	if($j('#date-mm').val() == ''){ modal_window({ message: '<div class="alert alert-danger"><?php echo addslashes($Translation['field not null']); ?></div>', title: "<?php echo addslashes($Translation['error:']); ?> Date", close: function() { /* */ $j('#date-mm').focus().parents('.form-group').addClass('has-error'); } }); return false; };
+	if($j('#date').val() == ''){ modal_window({ message: '<div class="alert alert-danger"><?php echo addslashes($Translation['field not null']); ?></div>', title: "<?php echo addslashes($Translation['error:']); ?> Date", close: function() { /* */ $j('#date').focus().parents('.form-group').addClass('has-error'); } }); return false; };
 	/* Field status can't be empty */
 	if(!$j('[name=status]:checked').length){ modal_window({ message: '<div class="alert alert-danger"><?php echo addslashes($Translation['field not null']); ?></div>', title: "<?php echo addslashes($Translation['error:']); ?> Status", close: function() { /* */ $j('[name=status]').eq(0).focus().parents('.form-group').addClass('has-error'); }, footer: [{ label: '<?php echo addslashes($Translation['ok']); ?>' }] }); return false; };
+	/* Field time can't be empty */
+	if($j('#time').val() == ''){ modal_window({ message: '<div class="alert alert-danger"><?php echo addslashes($Translation['field not null']); ?></div>', title: "<?php echo addslashes($Translation['error:']); ?> Time", close: function() { /* */ $j('[name=time]').eq(0).focus().parents('.form-group').addClass('has-error'); }, footer: [{ label: '<?php echo addslashes($Translation['ok']); ?>' }] }); return false; };
 	return true;
 }
 function medical_img_validateData() {
 	$j('.has-error').removeClass('has-error');
+	/* Image field image can't be empty */
+	if($j('#image').val() == '' && $j('#image-image').attr('src').match(/blank\.gif/)){ modal_window({ message: '<div class="alert alert-danger"><?php echo addslashes($Translation['field not null']); ?></div>', title: "<?php echo addslashes($Translation['error:']); ?> Image", close: function() { /* */ $j('[name=image]').eq(0).focus().parents('.form-group').addClass('has-error'); }, footer: [{ label: '<?php echo addslashes($Translation['ok']); ?>' }] }); return false; };
 	/* image field file type and size check */
 	if($j('#image').val() != '') {
 		if(!AppGini.checkFileUpload('image', 'jpg|jpeg|gif|png', 1024000)) return false;
@@ -364,6 +380,8 @@ function medical_img_validateData() {
 }
 function medical_docs_validateData() {
 	$j('.has-error').removeClass('has-error');
+	/* Image field doc can't be empty */
+	if($j('#doc').val() == '' && !$j('#doc-link:visible').length){ modal_window({ message: '<div class="alert alert-danger"><?php echo addslashes($Translation['field not null']); ?></div>', title: "<?php echo addslashes($Translation['error:']); ?> Doc", close: function() { /* */ $j('[name=doc]').eq(0).focus().parents('.form-group').addClass('has-error'); }, footer: [{ label: '<?php echo addslashes($Translation['ok']); ?>' }] }); return false; };
 	/* doc field file type and size check */
 	if($j('#doc').val() != '') {
 		if(!AppGini.checkFileUpload('doc', 'txt|doc|docx|docm|odt|pdf|rtf', 1024000)) return false;

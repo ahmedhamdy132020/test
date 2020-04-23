@@ -23,7 +23,7 @@
 	// Fields that can be displayed in the table view
 	$x->QueryFieldsTV = array(
 		"`medical_docs`.`id`" => "id",
-		"IF(    CHAR_LENGTH(`patients1`.`last_name`) || CHAR_LENGTH(`patients1`.`first_name`), CONCAT_WS('',   `patients1`.`last_name`, ',', `patients1`.`first_name`), '') /* Patient */" => "patient",
+		"IF(    CHAR_LENGTH(`patients1`.`last_name`) || CHAR_LENGTH(`patients1`.`first_name`), CONCAT_WS('',   `patients1`.`last_name`, ', ', `patients1`.`first_name`), '') /* Patient */" => "patient",
 		"`medical_docs`.`doc`" => "doc",
 		"`medical_docs`.`description`" => "description",
 	);
@@ -38,14 +38,14 @@
 	// Fields that can be displayed in the csv file
 	$x->QueryFieldsCSV = array(
 		"`medical_docs`.`id`" => "id",
-		"IF(    CHAR_LENGTH(`patients1`.`last_name`) || CHAR_LENGTH(`patients1`.`first_name`), CONCAT_WS('',   `patients1`.`last_name`, ',', `patients1`.`first_name`), '') /* Patient */" => "patient",
+		"IF(    CHAR_LENGTH(`patients1`.`last_name`) || CHAR_LENGTH(`patients1`.`first_name`), CONCAT_WS('',   `patients1`.`last_name`, ', ', `patients1`.`first_name`), '') /* Patient */" => "patient",
 		"`medical_docs`.`doc`" => "doc",
 		"`medical_docs`.`description`" => "description",
 	);
 	// Fields that can be filtered
 	$x->QueryFieldsFilters = array(
 		"`medical_docs`.`id`" => "ID",
-		"IF(    CHAR_LENGTH(`patients1`.`last_name`) || CHAR_LENGTH(`patients1`.`first_name`), CONCAT_WS('',   `patients1`.`last_name`, ',', `patients1`.`first_name`), '') /* Patient */" => "Patient",
+		"IF(    CHAR_LENGTH(`patients1`.`last_name`) || CHAR_LENGTH(`patients1`.`first_name`), CONCAT_WS('',   `patients1`.`last_name`, ', ', `patients1`.`first_name`), '') /* Patient */" => "Patient",
 		"`medical_docs`.`doc`" => "Doc",
 		"`medical_docs`.`description`" => "Description",
 	);
@@ -53,7 +53,7 @@
 	// Fields that can be quick searched
 	$x->QueryFieldsQS = array(
 		"`medical_docs`.`id`" => "id",
-		"IF(    CHAR_LENGTH(`patients1`.`last_name`) || CHAR_LENGTH(`patients1`.`first_name`), CONCAT_WS('',   `patients1`.`last_name`, ',', `patients1`.`first_name`), '') /* Patient */" => "patient",
+		"IF(    CHAR_LENGTH(`patients1`.`last_name`) || CHAR_LENGTH(`patients1`.`first_name`), CONCAT_WS('',   `patients1`.`last_name`, ', ', `patients1`.`first_name`), '') /* Patient */" => "patient",
 		"`medical_docs`.`doc`" => "doc",
 		"`medical_docs`.`description`" => "description",
 	);
@@ -68,7 +68,7 @@
 	$x->AllowSelection = 1;
 	$x->HideTableView = ($perm[2]==0 ? 1 : 0);
 	$x->AllowDelete = $perm[4];
-	$x->AllowMassDelete = false;
+	$x->AllowMassDelete = true;
 	$x->AllowInsert = $perm[1];
 	$x->AllowUpdate = $perm[3];
 	$x->SeparateDV = 0;
@@ -86,8 +86,10 @@
 	$x->ScriptFileName = "medical_docs_view.php";
 	$x->RedirectAfterInsert = "medical_docs_view.php?SelectedID=#ID#";
 	$x->TableTitle = "Medical docs";
-	$x->TableIcon = "table.gif";
+	$x->TableIcon = "resources/table_icons/active_sessions.png";
 	$x->PrimaryKey = "`medical_docs`.`id`";
+	$x->DefaultSortField = '1';
+	$x->DefaultSortDirection = 'asc';
 
 	$x->ColWidth   = array(  150, 150, 150);
 	$x->ColCaption = array("Patient", "Doc", "Description");

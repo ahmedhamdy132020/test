@@ -17,6 +17,11 @@ function medical_docs_insert() {
 		if($data['patient'] == empty_lookup_value) { $data['patient'] = ''; }
 	$data['description'] = br2nl($_REQUEST['description']);
 	$data['doc'] = PrepareUploadedFile('doc', 1024000,'txt|doc|docx|docm|odt|pdf|rtf', false, '');
+	if($data['doc']== '') {
+		echo StyleSheet() . "\n\n<div class=\"alert alert-danger\">" . $Translation['error:'] . " 'Doc': " . $Translation['field not null'] . '<br><br>';
+		echo '<a href="" onclick="history.go(-1); return false;">'.$Translation['< back'].'</a></div>';
+		exit;
+	}
 
 	/* for empty upload fields, when saving a copy of an existing record, copy the original upload field */
 	if($_REQUEST['SelectedID']) {
@@ -94,6 +99,14 @@ function medical_docs_delete($selected_id, $AllowDeleteOfParents=false, $skipChe
 			return $Translation['Couldn\'t delete this record'];
 	}
 
+	// delete file stored in the 'doc' field
+	$res = sql("select `doc` from `medical_docs` where `id`='$selected_id'", $eo);
+	if($row=@db_fetch_row($res)) {
+		if($row[0]!='') {
+			@unlink(getUploadDir('').$row[0]);
+		}
+	}
+
 	sql("delete from `medical_docs` where `id`='$selected_id'", $eo);
 
 	// hook: medical_docs_after_delete
@@ -121,13 +134,24 @@ function medical_docs_update($selected_id) {
 
 	$data['patient'] = makeSafe($_REQUEST['patient']);
 		if($data['patient'] == empty_lookup_value) { $data['patient'] = ''; }
+	$data['doc'] = PrepareUploadedFile('doc', 1024000, 'txt|doc|docx|docm|odt|pdf|rtf', false, "");
+	$existing_doc = sqlValue("select `doc` from `medical_docs` where `id`='" . makeSafe($selected_id) . "'");
+	if($data['doc'] == '' && !$existing_doc) {
+		echo StyleSheet() . "\n\n<div class=\"alert alert-danger\">{$Translation['error:']} 'Doc': {$Translation['field not null']}<br><br>";
+		echo '<a href="" onclick="history.go(-1); return false;">'.$Translation['< back'].'</a></div>';
+		exit;
+	}
 	$data['description'] = br2nl(makeSafe($_REQUEST['description']));
 	$data['selectedID'] = makeSafe($selected_id);
-	if($_REQUEST['doc_remove'] == 1) {
-		$data['doc'] = '';
-	} else {
-		$data['doc'] = PrepareUploadedFile('doc', 1024000, 'txt|doc|docx|docm|odt|pdf|rtf', false, "");
-	}
+		// delete file from server
+		if($data['doc'] != '') {
+			$res = sql("select `doc` from `medical_docs` where `id`='" . makeSafe($selected_id) . "'", $eo);
+			if($row = @db_fetch_row($res)) {
+				if($row[0] != '') {
+					@unlink(getUploadDir('') . $row[0]);
+				}
+			}
+		}
 
 	// hook: medical_docs_before_update
 	if(function_exists('medical_docs_before_update')) {
@@ -136,7 +160,7 @@ function medical_docs_update($selected_id) {
 	}
 
 	$o = array('silentErrors' => true);
-	sql('update `medical_docs` set       `patient`=' . (($data['patient'] !== '' && $data['patient'] !== NULL) ? "'{$data['patient']}'" : 'NULL') . ', ' . ($data['doc']!='' ? "`doc`='{$data['doc']}'" : ($_REQUEST['doc_remove'] != 1 ? '`doc`=`doc`' : '`doc`=NULL')) . ', `description`=' . (($data['description'] !== '' && $data['description'] !== NULL) ? "'{$data['description']}'" : 'NULL') . " where `id`='".makeSafe($selected_id)."'", $o);
+	sql('update `medical_docs` set       `patient`=' . (($data['patient'] !== '' && $data['patient'] !== NULL) ? "'{$data['patient']}'" : 'NULL') . ', ' . ($data['doc']!='' ? "`doc`='{$data['doc']}'" : '`doc`=`doc`') . ', `description`=' . (($data['description'] !== '' && $data['description'] !== NULL) ? "'{$data['description']}'" : 'NULL') . " where `id`='".makeSafe($selected_id)."'", $o);
 	if($o['error']!='') {
 		echo $o['error'];
 		echo '<a href="medical_docs_view.php?SelectedID='.urlencode($selected_id)."\">{$Translation['< back']}</a>";
@@ -373,7 +397,6 @@ function medical_docs_form($selected_id = '', $AllowUpdate = 1, $AllowInsert = 1
 		$jsReadOnly .= "\tjQuery('#patient').prop('disabled', true).css({ color: '#555', backgroundColor: '#fff' });\n";
 		$jsReadOnly .= "\tjQuery('#patient_caption').prop('disabled', true).css({ color: '#555', backgroundColor: 'white' });\n";
 		$jsReadOnly .= "\tjQuery('#doc').replaceWith('<div class=\"form-control-static\" id=\"doc\">' + (jQuery('#doc').val() || '') + '</div>');\n";
-		$jsReadOnly .= "\tjQuery('#doc, #doc-edit-link').hide();\n";
 		$jsReadOnly .= "\tjQuery('#description').replaceWith('<div class=\"form-control-static\" id=\"description\">' + (jQuery('#description').val() || '') + '</div>');\n";
 		$jsReadOnly .= "\tjQuery('.select2-container').hide();\n";
 
@@ -465,8 +488,6 @@ function medical_docs_form($selected_id = '', $AllowUpdate = 1, $AllowInsert = 1
 		$templateCode .= $jsEditable;
 
 		if(!$selected_id) {
-			$templateCode.="\n\tif(document.getElementById('docEdit')) { document.getElementById('docEdit').style.display='inline'; }";
-			$templateCode.="\n\tif(document.getElementById('docEditLink')) { document.getElementById('docEditLink').style.display='none'; }";
 		}
 
 		$templateCode.="\n});</script>\n";

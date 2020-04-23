@@ -389,26 +389,17 @@
 			foreach($config as $k => $v) $config[$k] = escapeshellarg(config($k));
 
 			$dump_file = $this->curr_dir . '/backups/' . md5(microtime()) . '.sql';
-//$dump_file ='D:\test.sql';
-/*$dump_file ='D:\installed\xampp\mysql\bin\mysqldump -u root test >D:\test.sql';*/
-		/*	$out = array(); $ret = 0;
+			$out = array(); $ret = 0;
 			maintenance_mode(true);
-			$pass_param = ($config['dbPassword'] ? "-p{$config['dbPassword']}" : '');*/
-			
-		//	echo $dump_file;
-		//	@exec("(D:\installed\xampp\mysql\bin\mysqldump -u{$config['dbUsername']} {$config['dbDatabase']}>$dump_file) 2>&1", $out, $ret);
-echo 'D:\installed\xampp\mysql\bin\mysqldump -u '.$config['dbUsername'].' '.$config['dbDatabase'].'>'.$dump_file;
-//$dump_file="D:\installed\xampp\mysql\bin\mysqldump -u root test >D:\test.sql";
-exec('D:\installed\xampp\mysql\bin\mysqldump -u '.$config['dbUsername'].' '.$config['dbDatabase'].'>'.$dump_file);
-//exec ($dump_file);
-/*
-$this->backup_log = implode("\n", $out);
+			$pass_param = ($config['dbPassword'] ? "-p{$config['dbPassword']}" : '');
+			@exec("(mysqldump -u{$config['dbUsername']} {$pass_param} -h{$config['dbServer']} {$config['dbDatabase']} > {$dump_file}) 2>&1", $out, $ret);
+			$this->backup_log = implode("\n", $out);
 			maintenance_mode(false);
 
 			if($ret) return false;
-*/
+
 			return true;
-		}	
+		}
 
 		/**
 		 *  @brief Restores a given backup file
